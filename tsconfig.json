@@ -26,6 +26,10 @@
       "design-system": [
         "dist/design-system/design-system",
         "dist/design-system"
+      ],
+      "@mw-angular/core": [
+        "dist/mw-angular/core/mw-angular-core",
+        "dist/mw-angular/core"
       ]
     }
   },

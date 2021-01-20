@@ -1,0 +1,28 @@
+{
+  "name": "@mw-angular/tailwindcss-builder",
+  "version": "1.0.2",
+  "description": "Tailwindcss CLI Builder",
+  "keywords": [
+    "angular",
+    "tailwindcss",
+    "CLI",
+    "builder",
+    "mw-angular"
+  ],
+  "license": "MIT",
+  "author": "Andrey Korovin <misticwonder@gmail.com>",
+  "homepage": "https://github.com/mw-angular/toolbox/tree/main/libs/mw-angular/tailwindcss-builder#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mw-angular/toolbox.git",
+    "directory": "libs/mw-angular/tailwindcss-builder"
+  },
+  "builders": "builders.json",
+  "peerDependencies": {
+    "postcss": "^8.2.1"
+  },
+  "dependencies": {
+    "postcss-import": "^14.0.0",
+    "tailwindcss": "^2.0.2"
+  }
+}

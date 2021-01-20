@@ -1,26 +1,27 @@
-# StarterCliWorkspace
+<p align="center">
+  <img width="250" height="250" src="https://raw.githubusercontent.com/mw-angular/toolbox/main/logo.png">
+</p>
 
-## Start
+# Most Wanted Angular Toolbox
 
-```
-npm run build-all-libs
-npm run tailwindcss:website
-npm run start:website
-```
+This is the collection of useful tools and libraries for Angular projects.
+All libraries support server side rendering.
 
-## Packages
+## Available tools
 
-All dependencies should be installed in `devDependencies`
+### [@mw-angular/tailwindcss-builder](https://github.com/mw-angular/toolbox/tree/main/libs/mw-angular/tailwindcss-builder#mw-angulartailwindcss-builder)
 
-```
-npm i -D <PACKAGE_NAME>
-```
+Angular CLI builder for Tailwind CSS.
 
-## Create
+## Available libraries
 
-Before creating app or lib set correct value for `newProjectRoot` in `angular.json` to `apps` or `libs` respectively.
+### [@mw-angular/core](https://github.com/mw-angular/toolbox/tree/main/libs/mw-angular/core#mw-angularcore)
 
-```
-ng g application --strict
-ng g library --prefix=<NEW_LIB_PREFIX>
-```
+Includes widely used services for Angular projects.
+
+## Contributing
+
+Pull requests are welcome.
+For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.

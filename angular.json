@@ -21,7 +21,7 @@
       "prefix": "app",
       "architect": {
         "tailwindcss": {
-          "builder": "@mw-angular/tailwindcss-builder:general",
+          "builder": "./dist/mw-angular/tailwindcss-builder:general",
           "options": {
             "themes": [
               {
@@ -170,7 +170,7 @@
       "prefix": "app",
       "architect": {
         "tailwindcss": {
-          "builder": "@mw-angular/tailwindcss-builder:general",
+          "builder": "./dist/mw-angular/tailwindcss-builder:general",
           "options": {
             "themes": [
               {
@@ -336,6 +336,46 @@
             "tsConfig": [
               "libs/design-system/tsconfig.lib.json",
               "libs/design-system/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@mw-angular/core": {
+      "projectType": "library",
+      "root": "libs/mw-angular/core",
+      "sourceRoot": "libs/mw-angular/core/src",
+      "prefix": "mw",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/mw-angular/core/tsconfig.lib.json",
+            "project": "libs/mw-angular/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/mw-angular/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/mw-angular/core/src/test.ts",
+            "tsConfig": "libs/mw-angular/core/tsconfig.spec.json",
+            "karmaConfig": "libs/mw-angular/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/mw-angular/core/tsconfig.lib.json",
+              "libs/mw-angular/core/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "configFile": {
+            "type": "string"
+          },
+          "cssFile": {
+            "type": "string"
+          },
+          "outputPath": {
+            "type": "string"
+          },
+          "outputFileName": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
