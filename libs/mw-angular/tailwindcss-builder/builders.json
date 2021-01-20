@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "general": {
+      "implementation": "./general",
+      "schema": "./general/schema.json",
+      "description": "Build tailwind css styles."
+    }
+  }
+}
