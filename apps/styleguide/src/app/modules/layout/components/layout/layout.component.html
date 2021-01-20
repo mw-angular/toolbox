@@ -1,0 +1,60 @@
+<div class="h-screen flex overflow-hidden bg-alpha-100">
+  <div class="md:hidden">
+    <div class="fixed inset-0 flex z-40" [@remove]="(isOpenedSidebar$$ | async) ? 'false' : 'true'">
+      <div class="fixed inset-0" [@showHideOverlay]="(isOpenedSidebar$$ | async) ? 'show' : 'hide'">
+        <div class="absolute inset-0 bg-alpha-600 opacity-75"></div>
+      </div>
+      <div
+        class="relative flex-1 flex flex-col max-w-xs w-full bg-alpha-800"
+        [@openCloseSidebar]="(isOpenedSidebar$$ | async) ? 'open' : 'close'"
+      >
+        <div class="absolute top-0 right-0 -mr-12 pt-2">
+          <button
+            (click)="closeSidebar()"
+            class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-alpha-50"
+          >
+            <span class="sr-only">Close sidebar</span>
+            <ds-icon category="outline" name="x" svgClass="h-6 w-6 text-alpha-50" aria-hidden="true"></ds-icon>
+          </button>
+        </div>
+        <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+          <app-main-menu-container></app-main-menu-container>
+        </div>
+      </div>
+      <div class="flex-shrink-0 w-14"></div>
+    </div>
+  </div>
+
+  <div class="hidden md:flex md:flex-shrink-0">
+    <div class="flex flex-col w-64">
+      <div class="flex flex-col h-0 flex-1 bg-alpha-800">
+        <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+          <app-main-menu-container></app-main-menu-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col w-0 flex-1 overflow-hidden">
+    <div class="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
+      <button
+        (click)="openSidebar()"
+        class="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-alpha-500 hover:text-alpha-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-bravo-500"
+      >
+        <span class="sr-only">Open sidebar</span>
+        <ds-icon category="outline" name="menu" svgClass="h-6 w-6" aria-hidden="true"></ds-icon>
+      </button>
+    </div>
+    <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0">
+      <div class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 class="text-2xl font-semibold text-alpha-900">{{ title }}</h1>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="py-4">
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

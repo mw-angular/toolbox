@@ -1,0 +1,24 @@
+<div class="mb-40" *ngFor="let item of items | keyvalue">
+  <h2 class="text-alpha-500 text-xs font-medium uppercase tracking-wide">Category: {{ item.key }}</h2>
+  <ul class="mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <li class="col-span-1 flex shadow-sm rounded-md" *ngFor="let icon of item.value; trackBy: trackByFn">
+      <div
+        class="flex-shrink-0 flex items-center justify-center w-16 text-alpha-50 text-sm font-medium rounded-l-md"
+        [ngClass]="{
+          'bg-bravo-600': icon.color === 'bravo',
+          'bg-charlie-600': icon.color === 'charlie'
+        }"
+      >
+        <ds-icon [category]="item.key" [name]="icon.name" svgClass="h-6 w-6" aria-hidden="true"></ds-icon>
+      </div>
+      <div
+        class="flex-1 flex items-center justify-between border-t border-r border-b border-alpha-200 bg-alpha-50 rounded-r-md truncate"
+      >
+        <div class="flex-1 px-4 py-2 text-sm truncate">
+          <p class="text-alpha-900 font-medium">{{ icon.name }}</p>
+          <p class="text-alpha-500">{{ icon.category }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

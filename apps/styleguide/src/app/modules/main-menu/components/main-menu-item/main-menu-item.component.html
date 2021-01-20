@@ -1,0 +1,21 @@
+<a
+  *ngIf="item"
+  [routerLink]="item.url"
+  [ngClass]="{
+    'text-alpha-300 hover:bg-alpha-700 hover:text-alpha-50': !isActive,
+    'bg-alpha-900 text-alpha-50': isActive,
+    'group flex items-center px-2 py-2 text-base md:text-sm font-medium rounded-md': true
+  }"
+>
+  <ds-icon
+    category="outline"
+    [name]="item.icon"
+    [svgClass]="{
+      'text-alpha-400 group-hover:text-alpha-300': !isActive,
+      'text-alpha-300': isActive,
+      'mr-4 h-6 w-6': true
+    }"
+    aria-hidden="true"
+  ></ds-icon>
+  {{ item.name }}
+</a>
