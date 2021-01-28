@@ -11,7 +11,7 @@ This is the [Angular CLI builder](https://angular.io/guide/cli-builder) for [Tai
 1. Use the package manager to install library.
 
 ```
-$ npm install -D postcss autoprefixer @mw-angular/tailwindcss-builder
+$ npm install -D tailwindcss postcss postcss-import autoprefixer @mw-angular/tailwindcss-builder
 ```
 
 2. Create and configure file `tailwind.config.js`, according to official documentation [here](https://tailwindcss.com/docs/configuration).
