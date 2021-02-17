@@ -1,0 +1,25 @@
+@import 'variables';
+
+.video-modal-container {
+	width: 90vw;
+	max-width: 900px;
+	background-color: $theme-color-N0;
+
+	position: relative;
+
+	.close {
+		color: $theme-color-N0;
+		position: absolute;
+		right: 0;
+		bottom: 100%;
+		margin-bottom: 10px;
+		padding-left: 6.75px;
+		padding-right: 6.75px;
+
+		::ng-deep {
+			i {
+				color: $theme-color-N0;
+			}
+		}
+	}
+}

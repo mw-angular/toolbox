@@ -1,0 +1,13 @@
+<div class="video-modal-container">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe
+            class="embed-responsive-item"
+            [src]="trustedVideoUrl"
+            allow="autoplay; fullscreen" allowfullscreen
+            width="640"
+            height="360"
+        ></iframe>
+    </div>
+    <button vsui-button type="button" class="btn-accessory close" icon="x" iconPosition="center" (click)="onClose()" aria-label="Close">
+    </button>
+</div>
