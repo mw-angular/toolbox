@@ -25,7 +25,7 @@ describe('MwLoadingService', (): void => {
       expect(onNextEventSpy.calls.allArgs()).toEqual([[true], [false]]);
     }));
 
-    it('should return boolean observable without tag', fakeAsync((): void => {
+    it('should return boolean observable for one tag', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
       service.getIsLoading('general').subscribe(onNextEventSpy);
@@ -34,13 +34,23 @@ describe('MwLoadingService', (): void => {
       expect(onNextEventSpy.calls.allArgs()).toEqual([[false]]);
     }));
 
-    it('should return boolean observable with custom tag', fakeAsync((): void => {
+    it('should return boolean observable for array tags', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
-      service.getIsLoading('custom-tag').subscribe(onNextEventSpy);
+      service.getIsLoading(['tag1', 'tag2']).subscribe(onNextEventSpy);
       tick(debounceTime);
 
-      expect(onNextEventSpy.calls.allArgs()).toEqual([[false]]);
+      service.start('tag1');
+      tick(debounceTime);
+
+      service.start('tag2');
+      tick(debounceTime);
+
+      service.stop('tag1');
+      service.stop('tag2');
+      tick(debounceTime);
+
+      expect(onNextEventSpy.calls.allArgs()).toEqual([[false], [true], [false]]);
     }));
   });
 

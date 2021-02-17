@@ -26,7 +26,11 @@ constructor(private loadingService: MwLoadingService) {
 ```
 isLoading$: Observable<boolean>;
 
+// one tag
 this.isLoading$ = this.loadingService.getIsLoading('any-tag-here');
+
+// array of tags
+this.isLoading$ = this.loadingService.getIsLoading(['tag-one', 'tag-two']);
 ```
 
 ## Set loading process
