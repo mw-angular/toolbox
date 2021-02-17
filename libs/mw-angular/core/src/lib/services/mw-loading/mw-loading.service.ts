@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subscriber } from 'rxjs';
 import { debounceTime, distinctUntilChanged, finalize, map, switchMapTo, take } from 'rxjs/operators';
+
+import { MwLoadingPool } from './mw-loading-pool';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MwLoadingService {
-  private isLoadingSubjectsPool: { [tag: string]: BehaviorSubject<number> } = {};
+  private isLoadingSubjectsPool: MwLoadingPool = {};
 
-  getIsLoading(tag: string): Observable<boolean> {
-    this.checkAndInitIsLoadingSubject(tag);
+  getIsLoading(value: string | string[]): Observable<boolean> {
+    const tags: string[] = Array.isArray(value) ? [...value] : [value];
 
-    return this.isLoadingSubjectsPool[tag].asObservable().pipe(
-      map((value: number): boolean => value > 0),
+    tags.forEach((tag: string): void => {
+      this.checkAndInitIsLoadingSubject(tag);
+    });
+
+    const counters$: BehaviorSubject<number>[] = tags.map(
+      (tag: string): BehaviorSubject<number> => this.isLoadingSubjectsPool[tag],
+    );
+
+    return combineLatest(counters$).pipe(
+      map((counters: number[]): boolean => counters.some((counter: number): boolean => counter > 0)),
       distinctUntilChanged(),
       // tslint:disable-next-line:no-magic-numbers
       debounceTime(100),
