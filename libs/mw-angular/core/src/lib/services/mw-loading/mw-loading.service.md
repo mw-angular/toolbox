@@ -40,6 +40,8 @@ this.loadingService.stop('any-tag-here');
 
 ### Start using observable, don't forget to stop this loader
 
+If you pass `null` instead of tag - loading will not be started
+
 ```
 const result$ = this.loadingService.startObservable('any-tag-here')
   .pipe(
@@ -50,6 +52,8 @@ const result$ = this.loadingService.startObservable('any-tag-here')
 
 ### Start and automatically stop wrapper for single value observable
 
+If you pass `null` instead of tag - loading will not be started
+
 ```
 const result$: Observable<ResultType> = this.loadingService.loadingWrapper<ResultType>(
   this.apiService.loadItems(queryParams),
@@ -57,7 +61,6 @@ const result$: Observable<ResultType> = this.loadingService.loadingWrapper<Resul
 );
 ```
 
-### When tag is not set
+### Debug and test
 
-Default tag value in any method is `general`. 
-Useful for tracking application loading processes.
+You can use method `getPoolInfo` to get information how many loadings was started for each tag.

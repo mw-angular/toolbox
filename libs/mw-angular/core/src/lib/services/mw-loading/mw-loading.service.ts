@@ -8,7 +8,7 @@ import { debounceTime, distinctUntilChanged, finalize, map, switchMapTo, take } 
 export class MwLoadingService {
   private isLoadingSubjectsPool: { [tag: string]: BehaviorSubject<number> } = {};
 
-  getIsLoading(tag: string = 'general'): Observable<boolean> {
+  getIsLoading(tag: string): Observable<boolean> {
     this.checkAndInitIsLoadingSubject(tag);
 
     return this.isLoadingSubjectsPool[tag].asObservable().pipe(
@@ -19,9 +19,11 @@ export class MwLoadingService {
     );
   }
 
-  startObservable(tag: string = 'general'): Observable<void> {
+  startObservable(tag: string | null): Observable<void> {
     return new Observable((subscriber: Subscriber<void>): (() => void) => {
-      this.start(tag);
+      if (tag !== null) {
+        this.start(tag);
+      }
 
       subscriber.next();
       subscriber.complete();
@@ -30,13 +32,13 @@ export class MwLoadingService {
     });
   }
 
-  start(tag: string = 'general'): void {
+  start(tag: string): void {
     this.checkAndInitIsLoadingSubject(tag);
 
     this.isLoadingSubjectsPool[tag].next(this.isLoadingSubjectsPool[tag].value + 1);
   }
 
-  stop(tag: string = 'general'): void {
+  stop(tag: string): void {
     if (!this.isLoadingSubjectsPool[tag]) {
       throw new Error(`Loading subject was not created for tag: ${tag}.`);
     }
@@ -46,7 +48,7 @@ export class MwLoadingService {
     }
   }
 
-  destroy(tag: string = 'general'): void {
+  destroy(tag: string): void {
     if (this.isLoadingSubjectsPool[tag]) {
       this.isLoadingSubjectsPool[tag].next(0);
       this.isLoadingSubjectsPool[tag].complete();
@@ -55,14 +57,26 @@ export class MwLoadingService {
     }
   }
 
-  loadingWrapper<T>(observable$: Observable<T>, tag: string = 'general'): Observable<T> {
+  loadingWrapper<T>(observable$: Observable<T>, tag: string | null): Observable<T> {
     return this.startObservable(tag).pipe(
       switchMapTo(observable$),
       take(1),
       finalize((): void => {
-        this.stop(tag);
+        if (tag !== null) {
+          this.stop(tag);
+        }
       }),
     );
+  }
+
+  getPoolInfo(): { [tag: string]: number } {
+    return Object.keys(this.isLoadingSubjectsPool).reduce((acc: { [tag: string]: number }, tag: string): {
+      [tag: string]: number;
+    } => {
+      acc[tag] = this.isLoadingSubjectsPool[tag].getValue();
+
+      return acc;
+    }, {});
   }
 
   private checkAndInitIsLoadingSubject(tag: string): void {

@@ -14,12 +14,12 @@ describe('MwLoadingService', (): void => {
     it('should debounce', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
-      service.getIsLoading().subscribe(onNextEventSpy);
-      service.start();
-      service.stop();
-      service.start();
+      service.getIsLoading('general').subscribe(onNextEventSpy);
+      service.start('general');
+      service.stop('general');
+      service.start('general');
       tick(debounceTime);
-      service.stop();
+      service.stop('general');
       tick(debounceTime);
 
       expect(onNextEventSpy.calls.allArgs()).toEqual([[true], [false]]);
@@ -28,7 +28,7 @@ describe('MwLoadingService', (): void => {
     it('should return boolean observable without tag', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
-      service.getIsLoading().subscribe(onNextEventSpy);
+      service.getIsLoading('general').subscribe(onNextEventSpy);
       tick(debounceTime);
 
       expect(onNextEventSpy.calls.allArgs()).toEqual([[false]]);
@@ -48,13 +48,13 @@ describe('MwLoadingService', (): void => {
     it('should start loading multiple times', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
-      service.getIsLoading().subscribe(onNextEventSpy);
+      service.getIsLoading('general').subscribe(onNextEventSpy);
       tick(debounceTime);
 
-      service.start();
+      service.start('general');
       tick(debounceTime);
 
-      service.start();
+      service.start('general');
       tick(debounceTime);
 
       expect(onNextEventSpy.calls.allArgs()).toEqual([[false], [true]]);
@@ -64,10 +64,10 @@ describe('MwLoadingService', (): void => {
       const onNextEventSpyGeneral: jasmine.Spy = jasmine.createSpy('onNextEventSpyGeneral');
       const onNextEventSpyCustom: jasmine.Spy = jasmine.createSpy('onNextEventSpyCustom');
 
-      service.getIsLoading().subscribe(onNextEventSpyGeneral);
+      service.getIsLoading('general').subscribe(onNextEventSpyGeneral);
       service.getIsLoading('custom-tag').subscribe(onNextEventSpyCustom);
       tick(debounceTime);
-      service.start();
+      service.start('general');
       service.start('custom-tag');
       tick(debounceTime);
       service.stop('custom-tag');
@@ -83,22 +83,28 @@ describe('MwLoadingService', (): void => {
     it('should start loading', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
-      service.getIsLoading().subscribe(onNextEventSpy);
+      service.getIsLoading('general').subscribe(onNextEventSpy);
       tick(debounceTime);
-      service.startObservable().subscribe();
+      service.startObservable('general').subscribe();
       tick(debounceTime);
 
       expect(onNextEventSpy.calls.allArgs()).toEqual([[false], [true]]);
+    }));
+
+    it('should not start loading when tag is null', fakeAsync((): void => {
+      service.startObservable(null).subscribe();
+
+      expect(service.getPoolInfo()).toEqual({});
     }));
 
     it('should start loading multiple tags', fakeAsync((): void => {
       const onNextEventSpyGeneral: jasmine.Spy = jasmine.createSpy('onNextEventSpyGeneral');
       const onNextEventSpyCustom: jasmine.Spy = jasmine.createSpy('onNextEventSpyCustom');
 
-      service.getIsLoading().subscribe(onNextEventSpyGeneral);
+      service.getIsLoading('general').subscribe(onNextEventSpyGeneral);
       service.getIsLoading('custom-tag').subscribe(onNextEventSpyCustom);
       tick(debounceTime);
-      service.startObservable().subscribe();
+      service.startObservable('general').subscribe();
       service.startObservable('custom-tag').subscribe();
       tick(debounceTime);
       service.stop('custom-tag');
@@ -120,28 +126,28 @@ describe('MwLoadingService', (): void => {
     it('should stop loading multiple times', fakeAsync((): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
 
-      service.getIsLoading().subscribe(onNextEventSpy);
+      service.getIsLoading('general').subscribe(onNextEventSpy);
       tick(debounceTime);
 
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.stop();
+      service.stop('general');
       tick(debounceTime);
-      service.stop();
-      tick(debounceTime);
-
-      service.start();
-      tick(debounceTime);
-      service.stop();
-      tick(debounceTime);
-      service.stop();
+      service.stop('general');
       tick(debounceTime);
 
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.stop();
+      service.stop('general');
+      tick(debounceTime);
+      service.stop('general');
+      tick(debounceTime);
+
+      service.start('general');
+      tick(debounceTime);
+      service.stop('general');
       tick(debounceTime);
 
       expect(onNextEventSpy.calls.allArgs()).toEqual([[false], [true], [false], [true], [false], [true], [false]]);
@@ -151,19 +157,19 @@ describe('MwLoadingService', (): void => {
       const onNextEventSpyGeneral: jasmine.Spy = jasmine.createSpy('onNextEventSpyGeneral');
       const onNextEventSpyCustom: jasmine.Spy = jasmine.createSpy('onNextEventSpyCustom');
 
-      service.getIsLoading().subscribe(onNextEventSpyGeneral);
+      service.getIsLoading('general').subscribe(onNextEventSpyGeneral);
       service.getIsLoading('custom-tag').subscribe(onNextEventSpyCustom);
       tick(debounceTime);
 
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.start();
+      service.start('general');
       tick(debounceTime);
       service.start('custom-tag');
       tick(debounceTime);
       service.stop('custom-tag');
       tick(debounceTime);
-      service.stop();
+      service.stop('general');
       tick(debounceTime);
 
       expect(onNextEventSpyGeneral.calls.allArgs()).toEqual([[false], [true]]);
@@ -177,17 +183,17 @@ describe('MwLoadingService', (): void => {
       const onNextEventSpy: jasmine.Spy = jasmine.createSpy('onNextEventSpy');
       const onCompleteEventSpy: jasmine.Spy = jasmine.createSpy('onCompleteEventSpy');
 
-      service.getIsLoading().subscribe(onNextEventSpy, (): void => {}, onCompleteEventSpy);
+      service.getIsLoading('general').subscribe(onNextEventSpy, (): void => {}, onCompleteEventSpy);
       tick(debounceTime);
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.destroy();
+      service.destroy('general');
       tick(debounceTime);
-      service.start();
+      service.start('general');
       tick(debounceTime);
-      service.stop();
+      service.stop('general');
       tick(debounceTime);
 
       expect(onNextEventSpy.calls.allArgs()).toEqual([[false], [true], [false]]);
@@ -197,10 +203,20 @@ describe('MwLoadingService', (): void => {
 
     it('should not fail on double destroy', fakeAsync((): void => {
       expect((): void => {
-        service.start();
-        service.destroy();
-        service.destroy();
+        service.start('general');
+        service.destroy('general');
+        service.destroy('general');
       }).not.toThrow();
+    }));
+  });
+
+  describe('getPoolInfo', (): void => {
+    it('should not start loading when tag is null', fakeAsync((): void => {
+      service.startObservable('one').subscribe();
+      service.startObservable('two').subscribe();
+      service.startObservable('two').subscribe();
+
+      expect(service.getPoolInfo()).toEqual({ one: 1, two: 2 });
     }));
   });
 });
