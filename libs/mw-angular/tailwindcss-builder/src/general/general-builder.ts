@@ -40,7 +40,7 @@ async function build(
       enabled: isProd,
       content: [...new Set([...purge, ...purgeProjectContent])],
     };
-  } else if (config.purge !== undefined) {
+  } else if (purge !== undefined) {
     config.purge = {
       ...config.purge,
       enabled: isProd,
