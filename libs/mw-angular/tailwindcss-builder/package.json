@@ -1,6 +1,6 @@
 {
   "name": "@mw-angular/tailwindcss-builder",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Tailwindcss CLI Builder",
   "keywords": [
     "angular",
