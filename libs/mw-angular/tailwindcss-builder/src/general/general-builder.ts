@@ -42,7 +42,7 @@ async function build(
     };
   } else if (purge !== undefined) {
     config.purge = {
-      ...config.purge,
+      ...purge,
       enabled: isProd,
       content: [...new Set([...purge.content, ...purgeProjectContent])],
     };
