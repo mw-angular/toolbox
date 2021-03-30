@@ -9,7 +9,7 @@ Extend your component from `UnsubscribeOnDestroy`:
 ```
 import { UnsubscribeOnDestroy } from '@mw-angular/core';
 
-export class LoginFormComponent extends UnsubscribeOnDestroy {
+export class SomeComponent extends UnsubscribeOnDestroy {
 }
 ```
 
@@ -21,4 +21,16 @@ this.form.valueChanges
     takeUntil(this.destroy$$),
   )
   .subscribe((): void => {...});
+```
+
+If you want to extend `ngOnDestroy` don't forget to call parent method `super.ngOnDestroy();`: 
+
+```
+import { UnsubscribeOnDestroy } from '@mw-angular/core';
+
+export class SomeComponent extends UnsubscribeOnDestroy {
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
+}
 ```
