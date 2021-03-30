@@ -17,9 +17,15 @@ Use the package manager to install library.
 $ npm install @mw-angular/core
 ```
 
+### Services
+
 1. [MwPlatformService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-platform/mw-platform.service.md)
 2. [MwLoadingService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-loading/mw-loading.service.md)
 3. [MwMetaService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-meta/mw-meta.service.md)
+
+### Entities
+
+1. [UnsubscribeOnDestroy](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/entities/unsubscribe-on-destroy/unsubscribe-on-destroy.md)
 
 ## Contributing
 
