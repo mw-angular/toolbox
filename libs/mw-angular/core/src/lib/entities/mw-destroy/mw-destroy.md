@@ -1,15 +1,15 @@
-# MwUnsubscribeOnDestroy
+# MwDestroy
 
 This class is used to reduce repeatable code responsible for unsubscribe process in components.
 
 ## How to use
 
-Extend your component from `MwUnsubscribeOnDestroy`:
+Extend your component from `MwDestroy`:
 
 ```
-import { MwUnsubscribeOnDestroy } from '@mw-angular/core';
+import { MwDestroy } from '@mw-angular/core';
 
-export class SomeComponent extends MwUnsubscribeOnDestroy {
+export class SomeComponent extends MwDestroy {
 }
 ```
 
@@ -35,9 +35,9 @@ constructor() {
 If you want to extend `ngOnDestroy` don't forget to call parent method `super.ngOnDestroy();`: 
 
 ```
-import { MwUnsubscribeOnDestroy } from '@mw-angular/core';
+import { MwDestroy } from '@mw-angular/core';
 
-export class SomeComponent extends MwUnsubscribeOnDestroy {
+export class SomeComponent extends MwDestroy {
   ngOnDestroy(): void {
     super.ngOnDestroy();
   }

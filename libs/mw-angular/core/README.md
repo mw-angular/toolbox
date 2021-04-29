@@ -22,10 +22,11 @@ $ npm install @mw-angular/core
 1. [MwPlatformService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-platform/mw-platform.service.md)
 2. [MwLoadingService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-loading/mw-loading.service.md)
 3. [MwMetaService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-meta/mw-meta.service.md)
+4. [MwDestroyService](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/services/mw-destroy/mw-destroy.service.md)
 
 ### Entities
 
-1. [MwUnsubscribeOnDestroy](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/entities/mw-unsubscribe-on-destroy/mw-unsubscribe-on-destroy.md)
+1. [MwDestroy](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/entities/mw-destroy/mw-destroy.md)
 
 ## Contributing
 
