@@ -25,7 +25,7 @@ $ npm install @mw-angular/core
 
 ### Entities
 
-1. [UnsubscribeOnDestroy](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/entities/unsubscribe-on-destroy/unsubscribe-on-destroy.md)
+1. [MwUnsubscribeOnDestroy](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/entities/mw-unsubscribe-on-destroy/mw-unsubscribe-on-destroy.md)
 
 ## Contributing
 
