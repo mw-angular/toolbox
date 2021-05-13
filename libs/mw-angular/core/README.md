@@ -33,6 +33,10 @@ $ npm install @mw-angular/core
 1. [mwGenerateUniqueIdHelper](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/helpers/mw-generate-unique-id/mw-generate-unique-id.helper.md)
 2. [mwGetPropertyHelper](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/helpers/mw-get-property/mw-get-property.helper.md)
 
+### Pipes
+
+1. [mwMapper](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/pipes/mw-mapper-pipe/mw-mapper-pipe.md)
+
 ## Contributing
 
 Pull requests to the [repository](https://github.com/mw-angular/toolbox) are welcome.
