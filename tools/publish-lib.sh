@@ -21,6 +21,7 @@ if [[ "$lib" != "" && "$type" != "" && "$branch" == "main" ]] ; then
     read otp
 
     npm publish dist/mw-angular/"$lib" --access public --otp "$otp"
+    exit 0
 else
     echo "param errors or git branch is not main"
     exit 1
