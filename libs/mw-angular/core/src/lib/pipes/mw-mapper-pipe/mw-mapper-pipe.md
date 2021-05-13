@@ -1,6 +1,6 @@
 # MwMapperPipeModule
 
-Maps a value to a different value using pure mapping function with any additional arguments.
+Maps a value to a different value using pure mapping function with any number additional arguments.
 
 ## How to use
 
