@@ -16,12 +16,12 @@ Maps a value to a different value using pure mapping function with any additiona
   ',
 })
 export class AppAnyComponent {
-  value = 'Value';
+  value: string = 'Value';
 
-  someParam = 'Hola!';
+  someParam: string = 'Hola';
   
-  readonly mapperFn = (input, someParam: string) => {
-    return { input, someParam };
+  readonly mapperFn: MwMapperFn<string, string> = (input: string, someParam: string): string => {
+    return input + someParam;
   }
 }
 ```
