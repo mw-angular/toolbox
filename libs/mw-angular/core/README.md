@@ -37,6 +37,10 @@ $ npm install @mw-angular/core
 
 1. [mwMapper](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/pipes/mw-mapper-pipe/mw-mapper-pipe.md)
 
+### RxJS
+
+1. [mwMutationObserver](https://github.com/mw-angular/toolbox/blob/main/libs/mw-angular/core/src/lib/rxjs/mw-mutation-observer/mw-mutation-observer.md)
+
 ## Contributing
 
 Pull requests to the [repository](https://github.com/mw-angular/toolbox) are welcome.
