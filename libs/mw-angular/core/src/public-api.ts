@@ -11,3 +11,5 @@ export * from './lib/helpers/mw-generate-unique-id/mw-generate-unique-id.helper'
 export * from './lib/pipes/mw-mapper-pipe/mw-mapper-pipe.module';
 export * from './lib/pipes/mw-mapper-pipe/mw-mapper.pipe';
 export * from './lib/pipes/mw-mapper-pipe/mw-mapper-fn';
+
+export * from './lib/rxjs/mw-mutation-observer/mw-mutation-observer';
