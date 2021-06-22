@@ -9,15 +9,15 @@ All libraries support server side rendering.
 
 ## Available tools
 
-### [@mw-angular/tailwindcss-builder](https://github.com/mw-angular/toolbox/tree/main/libs/mw-angular/tailwindcss-builder#mw-angulartailwindcss-builder)
+### [@mw-angular/tailwindcss-builder](https://github.com/mw-angular/toolbox/tree/main/libs/tailwindcss-builder#mw-angulartailwindcss-builder)
 
 Angular CLI builder for Tailwind CSS.
 
 ## Available libraries
 
-### [@mw-angular/core](https://github.com/mw-angular/toolbox/tree/main/libs/mw-angular/core#mw-angularcore)
+### [@mw-angular/core](https://github.com/mw-angular/toolbox/tree/main/libs/core#mw-angularcore)
 
-Includes widely used services for Angular projects.
+Includes widely used items for Angular projects.
 
 ## Contributing
 

@@ -1,0 +1,26 @@
+{
+  "name": "@mw-angular/core",
+  "version": "4.9.0",
+  "description": "Most Wanted Angular Library Core",
+  "keywords": [
+    "angular",
+    "library",
+    "mw-angular",
+    "core"
+  ],
+  "license": "MIT",
+  "author": "Andrey Korovin <misticwonder@gmail.com>",
+  "homepage": "https://github.com/mw-angular/toolbox/tree/main/libs/core#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mw-angular/toolbox.git",
+    "directory": "libs/core"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.0.5",
+    "@angular/core": "^12.0.5"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  }
+}

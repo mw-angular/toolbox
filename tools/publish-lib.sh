@@ -8,7 +8,7 @@ branch="$(git rev-parse --abbrev-ref HEAD)"
 if [[ "$lib" != "" && "$type" != "" && "$branch" == "main" ]] ; then
     npm whoami 2> /dev/null || npm login || exit
 
-    cd libs/mw-angular/"$lib" || exit
+    cd libs/"$lib" || exit
     ver="$(npm version "$type")"
 
     cd "$basePath" || exit
@@ -20,7 +20,7 @@ if [[ "$lib" != "" && "$type" != "" && "$branch" == "main" ]] ; then
     echo -n "Enter password from your authenticator: "
     read otp
 
-    npm publish dist/mw-angular/"$lib" --access public --otp "$otp"
+    npm publish dist/"$lib" --access public --otp "$otp"
     exit 0
 else
     echo "param errors or git branch is not main"
