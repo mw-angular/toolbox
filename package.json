@@ -7,6 +7,7 @@
     "------------------ lib: core ------------------": "",
     "start:core": "ng build core --configuration production --watch",
     "build:core": "ng build core --configuration production",
+    "test:core": "ng test core --no-watch --browsers=ChromeHeadlessCI",
     "publish-major:core": "./tools/publish-lib.sh core major",
     "publish-minor:core": "./tools/publish-lib.sh core minor",
     "publish-patch:core": "./tools/publish-lib.sh core patch",
