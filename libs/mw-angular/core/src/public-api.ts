@@ -7,6 +7,7 @@ export * from './lib/entities/mw-destroy/mw-destroy';
 
 export * from './lib/helpers/mw-get-property/mw-get-property.helper';
 export * from './lib/helpers/mw-generate-unique-id/mw-generate-unique-id.helper';
+export * from './lib/helpers/mw-is-equal/mw-is-equal.helper';
 
 export * from './lib/pipes/mw-mapper-pipe/mw-mapper-pipe.module';
 export * from './lib/pipes/mw-mapper-pipe/mw-mapper.pipe';
