@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subscriber } from 'rxjs';
-import { debounceTime, distinctUntilChanged, finalize, map, switchMapTo, take } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, finalize, map, switchMapTo } from 'rxjs/operators';
 
 import { MwLoadingPool } from './mw-loading-pool';
 
@@ -70,7 +70,6 @@ export class MwLoadingService {
   loadingWrapper<T>(observable$: Observable<T>, tag: string | null): Observable<T> {
     return this.startObservable(tag).pipe(
       switchMapTo(observable$),
-      take(1),
       finalize((): void => {
         if (tag !== null) {
           this.stop(tag);
