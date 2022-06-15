@@ -28,12 +28,6 @@ $ npm install @mw-angular/core
 
 1. [MwDestroy](https://github.com/mw-angular/toolbox/blob/main/libs/core/src/lib/entities/mw-destroy/mw-destroy.md)
 
-### Helpers
-
-1. [mwGenerateUniqueIdHelper](https://github.com/mw-angular/toolbox/blob/main/libs/core/src/lib/helpers/mw-generate-unique-id/mw-generate-unique-id.helper.md)
-2. [mwGetPropertyHelper](https://github.com/mw-angular/toolbox/blob/main/libs/core/src/lib/helpers/mw-get-property/mw-get-property.helper.md)
-3. [mwIsEqualHelper](https://github.com/mw-angular/toolbox/blob/main/libs/core/src/lib/helpers/mw-is-equal/mw-is-equal.helper.md)
-
 ### Pipes
 
 1. [mwMapper](https://github.com/mw-angular/toolbox/blob/main/libs/core/src/lib/pipes/mw-mapper-pipe/mw-mapper-pipe.md)
