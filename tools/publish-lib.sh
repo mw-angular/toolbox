@@ -20,7 +20,8 @@ if [[ "$lib" != "" && "$type" != "" && "$branch" == "main" ]] ; then
     echo -n "Enter password from your authenticator: "
     read otp
 
-    npm publish dist/"$lib" --access public --otp "$otp"
+    cd dist/"$lib" || exit
+    npm publish --access public --otp "$otp"
     exit 0
 else
     echo "param errors or git branch is not main"
